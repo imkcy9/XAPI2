@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="XAPI2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ExampleCTP">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/bin/ExampleCTP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUSE_CMAKE"/>
+					<Add option="-DXAPI_CPP_EXPORTS"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 ExampleCTP"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ExampleCTP/fast">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/bin/ExampleCTP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUSE_CMAKE"/>
+					<Add option="-DXAPI_CPP_EXPORTS"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 ExampleCTP/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="XAPI_CPP">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/lib/libXAPI_CPP.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBUILDING_DLL"/>
+					<Add option="-DXAPI_CPP_EXPORTS"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 XAPI_CPP"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="XAPI_CPP/fast">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/lib/libXAPI_CPP.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBUILDING_DLL"/>
+					<Add option="-DXAPI_CPP_EXPORTS"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 XAPI_CPP/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CTP_Trade">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/lib/libCTP_Trade.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUSE_CMAKE"/>
+					<Add option="-DBUILDING_DLL"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 CTP_Trade"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CTP_Trade/fast">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/lib/libCTP_Trade.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUSE_CMAKE"/>
+					<Add option="-DBUILDING_DLL"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 CTP_Trade/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ExampleFIRST">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/bin/ExampleFIRST" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUSE_CMAKE"/>
+					<Add option="-DFIRST_API_CPP_h_EXPORTS"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 ExampleFIRST"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ExampleFIRST/fast">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/bin/ExampleFIRST" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/bin"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUSE_CMAKE"/>
+					<Add option="-DFIRST_API_CPP_h_EXPORTS"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 ExampleFIRST/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="FIRST_API_CPP">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/lib/libFIRST_API_CPP.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBUILDING_DLL"/>
+					<Add option="-DFIRST_API_CPP_h_EXPORTS"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 FIRST_API_CPP"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="FIRST_API_CPP/fast">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/lib/libFIRST_API_CPP.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DBUILDING_DLL"/>
+					<Add option="-DFIRST_API_CPP_h_EXPORTS"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 FIRST_API_CPP/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CTP_Quote">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/lib/libCTP_Quote.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUSE_CMAKE"/>
+					<Add option="-DBUILDING_DLL"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 CTP_Quote"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CTP_Quote/fast">
+				<Option output="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/lib/libCTP_Quote.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DUSE_CMAKE"/>
+					<Add option="-DBUILDING_DLL"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote"/>
+					<Add directory="/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/../../../../include/c++/4.8.5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 CTP_Quote/fast"/>
+					<CompileFile command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -f &quot;/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote/MdUserApi.cpp">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote/MdUserApi.h">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote/main.cpp">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade/TraderApi.cpp">
+			<Option target="CTP_Trade"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade/TraderApi.h">
+			<Option target="CTP_Trade"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade/main.cpp">
+			<Option target="CTP_Trade"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP/TypeConvert.cpp">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP/TypeConvert.h">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote/stdafx.cpp">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote/stdafx.h">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade/stdafx.cpp">
+			<Option target="CTP_Trade"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade/stdafx.h">
+			<Option target="CTP_Trade"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/example/cpp/CTP/example_ctp.cpp">
+			<Option target="ExampleCTP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/example/cpp/CTP/example_first.cpp">
+			<Option target="ExampleFIRST"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/ApiProcess.cpp">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/ApiProcess.h">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/CSubscribeManager.cpp">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/CSubscribeManager.h">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/CSubscribeManager1.cpp">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/CSubscribeManager1.h">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/CSubscribeManager2.cpp">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/CSubscribeManager2.h">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/CSyntheticCalculate_DepthMarketDataNField.cpp">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/CSyntheticCalculate_DepthMarketDataNField.h">
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/ChinaStock.cpp">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/ChinaStock.h">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/IDGenerator.cpp">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/IDGenerator.h">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/inirw.cpp">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/inirw.h">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticConfig.cpp">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticConfig.h">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticInfos.cpp">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticInfos.h">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticManager.cpp">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticManager.h">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticMarketData.cpp">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticMarketData.h">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/toolkit.cpp">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/include/toolkit.h">
+			<Option target="CTP_Trade"/>
+			<Option target="CTP_Quote"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/FIRST_API_CPP/FIRSTApi.cpp">
+			<Option target="FIRST_API_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/FIRST_API_CPP/FIRSTApiImpl.cpp">
+			<Option target="FIRST_API_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/FIRST_API_CPP/FIRSTApiImpl.h">
+			<Option target="FIRST_API_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/FIRST_API_CPP/stdafx.cpp">
+			<Option target="FIRST_API_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/FIRST_API_CPP/stdafx.h">
+			<Option target="FIRST_API_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XAPI_CPP.cpp">
+			<Option target="XAPI_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XApiC.cpp">
+			<Option target="XAPI_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XApiCpp.cpp">
+			<Option target="XAPI_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XApiImpl.cpp">
+			<Option target="XAPI_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XApiImpl.h">
+			<Option target="XAPI_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/stdafx.cpp">
+			<Option target="XAPI_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/stdafx.h">
+			<Option target="XAPI_CPP"/>
+		</Unit>
+		<Unit filename="/tmp/tmp.76Xyk3tz3c/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

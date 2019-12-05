@@ -1,0 +1,4 @@
+/home/kecy/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /tmp/tmp.76Xyk3tz3c
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host

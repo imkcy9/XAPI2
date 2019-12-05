@@ -1,0 +1,202 @@
+[
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DUSE_CMAKE -DXAPI_CPP_EXPORTS   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g   -o CMakeFiles/ExampleCTP.dir/example/cpp/CTP/example_ctp.cpp.o -c /tmp/tmp.76Xyk3tz3c/example/cpp/CTP/example_ctp.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/example/cpp/CTP/example_ctp.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DXAPI_CPP_EXPORTS   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/XAPI_CPP.dir/languages/CPP/XAPI_CPP/XAPI_CPP.cpp.o -c /tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XAPI_CPP.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XAPI_CPP.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DXAPI_CPP_EXPORTS   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/XAPI_CPP.dir/languages/CPP/XAPI_CPP/XApiC.cpp.o -c /tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XApiC.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XApiC.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DXAPI_CPP_EXPORTS   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/XAPI_CPP.dir/languages/CPP/XAPI_CPP/XApiCpp.cpp.o -c /tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XApiCpp.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XApiCpp.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DXAPI_CPP_EXPORTS   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/XAPI_CPP.dir/languages/CPP/XAPI_CPP/XApiImpl.cpp.o -c /tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XApiImpl.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/XApiImpl.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DXAPI_CPP_EXPORTS   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/XAPI_CPP.dir/languages/CPP/XAPI_CPP/stdafx.cpp.o -c /tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/stdafx.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/languages/CPP/XAPI_CPP/stdafx.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/apis/CTP/TypeConvert.cpp.o -c /tmp/tmp.76Xyk3tz3c/apis/CTP/TypeConvert.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/apis/CTP/TypeConvert.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/apis/CTP/Trade/TraderApi.cpp.o -c /tmp/tmp.76Xyk3tz3c/apis/CTP/Trade/TraderApi.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade/TraderApi.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/apis/CTP/Trade/main.cpp.o -c /tmp/tmp.76Xyk3tz3c/apis/CTP/Trade/main.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade/main.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/apis/CTP_Trade/stdafx.cpp.o -c /tmp/tmp.76Xyk3tz3c/apis/CTP_Trade/stdafx.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade/stdafx.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/include/toolkit.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/toolkit.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/toolkit.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/include/inirw.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/inirw.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/inirw.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/include/ChinaStock.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/ChinaStock.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/ChinaStock.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/include/IDGenerator.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/IDGenerator.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/IDGenerator.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/include/ApiProcess.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/ApiProcess.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/ApiProcess.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/include/synthetic/CSyntheticConfig.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticConfig.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticConfig.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/include/synthetic/CSyntheticInfos.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticInfos.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticInfos.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/include/synthetic/CSyntheticManager.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticManager.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticManager.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Trade_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Trade -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Trade   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Trade.dir/include/synthetic/CSyntheticMarketData.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticMarketData.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticMarketData.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DFIRST_API_CPP_h_EXPORTS -DUSE_CMAKE   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g   -o CMakeFiles/ExampleFIRST.dir/example/cpp/CTP/example_first.cpp.o -c /tmp/tmp.76Xyk3tz3c/example/cpp/CTP/example_first.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/example/cpp/CTP/example_first.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DFIRST_API_CPP_EXPORTS -DFIRST_API_CPP_h_EXPORTS   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/FIRST_API_CPP.dir/languages/CPP/FIRST_API_CPP/FIRSTApi.cpp.o -c /tmp/tmp.76Xyk3tz3c/languages/CPP/FIRST_API_CPP/FIRSTApi.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/languages/CPP/FIRST_API_CPP/FIRSTApi.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DFIRST_API_CPP_EXPORTS -DFIRST_API_CPP_h_EXPORTS   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/FIRST_API_CPP.dir/languages/CPP/FIRST_API_CPP/FIRSTApiImpl.cpp.o -c /tmp/tmp.76Xyk3tz3c/languages/CPP/FIRST_API_CPP/FIRSTApiImpl.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/languages/CPP/FIRST_API_CPP/FIRSTApiImpl.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DFIRST_API_CPP_EXPORTS -DFIRST_API_CPP_h_EXPORTS   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/FIRST_API_CPP.dir/languages/CPP/FIRST_API_CPP/stdafx.cpp.o -c /tmp/tmp.76Xyk3tz3c/languages/CPP/FIRST_API_CPP/stdafx.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/languages/CPP/FIRST_API_CPP/stdafx.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/apis/CTP/TypeConvert.cpp.o -c /tmp/tmp.76Xyk3tz3c/apis/CTP/TypeConvert.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/apis/CTP/TypeConvert.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/apis/CTP/Quote/MdUserApi.cpp.o -c /tmp/tmp.76Xyk3tz3c/apis/CTP/Quote/MdUserApi.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote/MdUserApi.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/apis/CTP/Quote/main.cpp.o -c /tmp/tmp.76Xyk3tz3c/apis/CTP/Quote/main.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote/main.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/apis/CTP_Quote/stdafx.cpp.o -c /tmp/tmp.76Xyk3tz3c/apis/CTP_Quote/stdafx.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote/stdafx.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/toolkit.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/toolkit.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/toolkit.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/inirw.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/inirw.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/inirw.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/ChinaStock.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/ChinaStock.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/ChinaStock.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/IDGenerator.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/IDGenerator.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/IDGenerator.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/ApiProcess.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/ApiProcess.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/ApiProcess.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/CSubscribeManager.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/CSubscribeManager.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/CSubscribeManager.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/CSubscribeManager1.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/CSubscribeManager1.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/CSubscribeManager1.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/CSubscribeManager2.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/CSubscribeManager2.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/CSubscribeManager2.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/CSyntheticCalculate_DepthMarketDataNField.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/CSyntheticCalculate_DepthMarketDataNField.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/CSyntheticCalculate_DepthMarketDataNField.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/synthetic/CSyntheticConfig.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticConfig.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticConfig.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/synthetic/CSyntheticInfos.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticInfos.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticInfos.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/synthetic/CSyntheticManager.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticManager.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticManager.cpp"
+},
+{
+  "directory": "/tmp/tmp.76Xyk3tz3c/cmake-build-debug-remote-host",
+  "command": "/usr/bin/c++  -DBUILDING_DLL -DCTP_Quote_EXPORTS -DUSE_CMAKE -I/tmp/tmp.76Xyk3tz3c/apis/CTP -I/tmp/tmp.76Xyk3tz3c/apis/CTP/Quote -I/tmp/tmp.76Xyk3tz3c/apis/CTP_Quote   -march=native -Wall -Wextra -fpermissive -rdynamic -std=c++11 -g -fPIC   -o CMakeFiles/CTP_Quote.dir/include/synthetic/CSyntheticMarketData.cpp.o -c /tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticMarketData.cpp",
+  "file": "/tmp/tmp.76Xyk3tz3c/include/synthetic/CSyntheticMarketData.cpp"
+}
+]
