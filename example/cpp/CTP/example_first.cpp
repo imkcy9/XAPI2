@@ -33,6 +33,21 @@ public:
     virtual void OnFrontConnected(){
         printf("OnFrontConnected\r\n");
     };
+
+    void OnRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CThostFtdcRspInfoField *pRspInfo, int nRequestID,
+                        bool bIsLast) override {
+        FIRSTSpi::OnRspUserLogin(pRspUserLogin, pRspInfo, nRequestID, bIsLast);
+    }
+
+    void OnRspSubMarketData(CThostFtdcSpecificInstrumentField *pSpecificInstrument, CThostFtdcRspInfoField *pRspInfo,
+                            int nRequestID, bool bIsLast) override {
+        FIRSTSpi::OnRspSubMarketData(pSpecificInstrument, pRspInfo, nRequestID, bIsLast);
+    }
+
+    void OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketData) override {
+        printf("OnRtnDepthMarketData %s \n", pDepthMarketData->InstrumentID);
+    }
+
 public:
     //CXApi* m_pApi;
     int count;
@@ -49,7 +64,7 @@ int main(int argc, char* argv[])
 	char DLLPath2[250] = "CTP_Trade_x86.dll";
 #endif
 #else
-    char DLLPath1[1024] = "libCTP_Quote.so";
+    char DLLPath1[1024] = "libCTP_SE_Quote.so";
     //char DLLPath2[1024] = "libCTP_Trade.so";
 //	char dir_path[512] = {0};
 //	char DLLPath1[1024] = {0};
@@ -95,9 +110,21 @@ int main(int argc, char* argv[])
         }
         FIRSTSpi *p = new FIRSTSpiImpl();
         pApi1->RegisterSpi(p);
-        pApi1->RegisterFront("tcp://yhzx-front1.yhqh.com:41213;tcp://yhzx-front3.yhqh.com:41213");
+        CThostFtdcReqAuthenticateField reqAuthenticateField = {};
+        CThostFtdcReqUserLoginField reqUserLoginField = {};
+        strcpy(reqUserLoginField.BrokerID, "9999");
+        strcpy(reqUserLoginField.UserID, "005890");
+        strcpy(reqUserLoginField.Password, "123456");
+
+        //180.168.146.187:10131 tcp://218.202.237.33:10112
+        pApi1->connect("tcp://180.168.146.187:10131", &reqAuthenticateField, &reqUserLoginField);
+        //pApi1->RegisterFront("tcp://yhzx-front1.yhqh.com:41213;tcp://yhzx-front3.yhqh.com:41213");
         //pApi1->Connect("./", &m_ServerInfo1, &m_UserInfo, 1);
         printf("已经执行完Connect\n");
+
+        sleep(2);
+        char* inst = "SR003";
+        pApi1->SubscribeMarketData(&inst, 1);
 
         //pApi2->RegisterSpi(p);
         //pApi2->Connect("./", &m_ServerInfo2, &m_UserInfo, 1);

@@ -2,9 +2,11 @@
 // Created by kecy on 2019/12/5.
 //
 
+#include <cstring>
 #include "FIRSTApiImpl.h"
 #include "../../../include/QueueEnum.h"
-#include "FIRSTApiC.cpp"
+#include "../../../include/ApiStruct.h"
+#include "../../../include/FIRSTApiC.h"
 void* __stdcall FIRSTApiImpl::OnResponse(char type, void* pApi1, void* pApi2, double double1, double double2, void* ptr1, int size1, void* ptr2, int size2, void* ptr3, int size3)
 {
     if (pApi2 == nullptr)
@@ -23,7 +25,9 @@ void* FIRSTApiImpl::_OnResponse(char type, void* pApi1, void* pApi2, double doub
     switch (rt)
     {
         case ResponseType_OnConnectionStatus:
-            m_pSpi->OnFrontConnected();
+            if (double1 == ConnectionStatus_Connected) {
+                m_pSpi->OnFrontConnected();
+            }
             break;
         case ResponseType_OnRtnError:
             m_pSpi->OnRspError((CThostFtdcRspInfoField*)ptr1, size1, size2);
@@ -68,7 +72,7 @@ void* FIRSTApiImpl::_OnResponse(char type, void* pApi1, void* pApi2, double doub
             break;
 
         case ResponseType_OnRtnQuoteRequest:
-            //m_pSpi->OnRtnQuoteRequest(this, (QuoteRequestField*)ptr1);
+            m_pSpi->OnRtnForQuoteRsp((CThostFtdcForQuoteRspField*)ptr1);
             break;
 
         case ResponseType_OnRspQryHistoricalTicks:
@@ -131,18 +135,19 @@ const char *FIRSTApiImpl::GetTradingDay() {
     return nullptr;
 }
 
+void FIRSTApiImpl::connect(char *pszFrontAddress, CThostFtdcReqAuthenticateField *pReqAuthenticateField,
+                           CThostFtdcReqUserLoginField *pReqUserLoginField) {
+    m_pApi = X_Create(m_pFun);
+    X_Register(m_pFun, m_pApi, (fnOnResponse)OnResponse, this);
+    X_Connect(m_pFun, m_pApi, pszFrontAddress, pReqAuthenticateField, pReqUserLoginField);
+
+}
+
+//expired
 void FIRSTApiImpl::RegisterFront(char *pszFrontAddress) {
     m_pApi = X_Create(m_pFun);
     X_Register(m_pFun, m_pApi, (fnOnResponse)OnResponse, this);
-    X_Connect(m_pFun, m_pApi, pszFrontAddress);
-}
-
-void FIRSTApiImpl::RegisterNameServer(char *pszNsAddress) {
-
-}
-
-void FIRSTApiImpl::RegisterFensUserInfo(CThostFtdcFensUserInfoField *pFensUserInfo) {
-
+    //X_Connect(m_pFun, m_pApi, pszFrontAddress);
 }
 
 void FIRSTApiImpl::RegisterSpi(FIRSTSpi *pSpi) {
@@ -250,6 +255,7 @@ int FIRSTApiImpl::ReqQryQuote(CThostFtdcQryQuoteField *pQryQuote, int nRequestID
 }
 
 int FIRSTApiImpl::SubscribeMarketData(char **ppInstrumentID, int nCount) {
+    X_Subscribe(m_pFun, m_pApi, (const char*)*ppInstrumentID,"");
     return 0;
 }
 

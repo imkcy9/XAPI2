@@ -67,10 +67,7 @@ public:
 
 	void Register(void* pCallback,void* pClass);
 
-	void Connect(const string& szPath,
-		ServerInfoField* pServerInfo,
-		UserInfoField* pUserInfo,
-		int count);
+	void Connect(char *pszFrontAddress, CThostFtdcReqAuthenticateField *pReqAuthenticateField, CThostFtdcReqUserLoginField *pReqUserLoginField);
 	void Disconnect();
 
 	char* ReqOrderInsert(
@@ -260,6 +257,9 @@ private:
 	string						m_szPath;				//生成配置文件的路径
 	ServerInfoField				m_ServerInfo;
 	UserInfoField				m_UserInfo;
+    string                      m_address;
+    CThostFtdcReqAuthenticateField m_AuthenticateField;
+    CThostFtdcReqUserLoginField    m_UserLoginField;
 	int							m_nSleep;
 	
 	unordered_map<string, OrderField*>				m_id_platform_order;

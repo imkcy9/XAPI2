@@ -154,10 +154,7 @@ bool CMdUserApi::IsErrorRspInfo(CThostFtdcRspInfoField *pRspInfo)
 	return bRet;
 }
 
-void CMdUserApi::Connect(const string& szPath,
-	ServerInfoField* pServerInfo,
-	UserInfoField* pUserInfo,
-	int count)
+void CMdUserApi::Connect(char *pszFrontAddress, CThostFtdcReqAuthenticateField *pReqAuthenticateField, CThostFtdcReqUserLoginField *pReqUserLoginField)
 {
 #if _WIN32
 	char szExePath[MAX_PATH] = { 0 };
@@ -178,9 +175,12 @@ void CMdUserApi::Connect(const string& szPath,
 	}
 #endif
 
-	m_szPath = szPath;
-	memcpy(&m_ServerInfo, pServerInfo, sizeof(ServerInfoField));
-	memcpy(&m_UserInfo, pUserInfo, sizeof(UserInfoField));
+	m_szPath = "szPath";
+	m_address = pszFrontAddress;
+	memcpy(&m_AuthenticateField, pReqAuthenticateField, sizeof(m_AuthenticateField));
+	memcpy(&m_UserLoginField, pReqUserLoginField, sizeof(m_UserLoginField));
+	//memcpy(&m_ServerInfo, pServerInfo, sizeof(ServerInfoField));
+	//memcpy(&m_UserInfo, pUserInfo, sizeof(UserInfoField));
 
 	m_msgQueue_Query->Input_NoCopy(RequestType::E_Init, m_msgQueue_Query, this, 0, 0,
 		nullptr, 0, nullptr, 0, nullptr, 0);
@@ -247,9 +247,9 @@ int CMdUserApi::_Init()
 		m_pApi->RegisterSpi(this);
 
 		//添加地址
-		size_t len = strlen(m_ServerInfo.Address) + 1;
+		size_t len = m_address.length() + 1;
 		char* buf = new char[len];
-		strncpy(buf, m_ServerInfo.Address, len);
+		strncpy(buf, m_address.c_str(), len);
 
 		char* token = strtok(buf, _QUANTBOX_SEPS_);
 		while (token)
@@ -290,9 +290,10 @@ void CMdUserApi::ReqUserLogin()
 {
 	CThostFtdcReqUserLoginField* pBody = (CThostFtdcReqUserLoginField*)m_msgQueue_Query->new_block(sizeof(CThostFtdcReqUserLoginField));
 
-	strncpy(pBody->BrokerID, m_ServerInfo.BrokerID, sizeof(TThostFtdcBrokerIDType));
-	strncpy(pBody->UserID, m_UserInfo.UserID, sizeof(TThostFtdcInvestorIDType));
-	strncpy(pBody->Password, m_UserInfo.Password, sizeof(TThostFtdcPasswordType));
+
+	strncpy(pBody->BrokerID, m_UserLoginField.BrokerID, sizeof(TThostFtdcBrokerIDType));
+	strncpy(pBody->UserID, m_UserLoginField.UserID, sizeof(TThostFtdcInvestorIDType));
+	strncpy(pBody->Password, m_UserLoginField.Password, sizeof(TThostFtdcPasswordType));
 
 	m_msgQueue_Query->Input_NoCopy(RequestType::E_ReqUserLoginField, m_msgQueue_Query, this, 0, 0,
 		pBody, sizeof(CThostFtdcReqUserLoginField), nullptr, 0, nullptr, 0);
@@ -385,94 +386,24 @@ void CMdUserApi::_Disconnect(bool IsInQueue)
 }
 
 
-void CMdUserApi::Subscribe(const string& szInstrumentIDs, const string& szExchangeID)
+void CMdUserApi::Subscribe(const char *ppInstrumentID[], int nCount)
 {
 	if (nullptr == m_pApi)
 		return;
 
-	set<string> ss_new = m_pSubscribeManager->String2Set(szInstrumentIDs.c_str());
-	Subscribe(ss_new, szExchangeID);
+    m_pApi->SubscribeMarketData((char**)&ppInstrumentID, nCount);
+	//set<string> ss_new = m_pSubscribeManager->String2Set(szInstrumentIDs.c_str());
+	//Subscribe(ss_new, szExchangeID);
 }
 
-void CMdUserApi::Subscribe(const set<string>& instrumentIDs, const string& szExchangeID)
+void CMdUserApi::Unsubscribe(const char *ppInstrumentID[], int nCount)
 {
 	if (nullptr == m_pApi)
 		return;
 
-	if (instrumentIDs.size() == 0)
-		return;
-
-	set<string> s_dif = m_pSubscribeManager->Subscribe(instrumentIDs, szExchangeID);
-	string str_dif = m_pSubscribeManager->Set2String(s_dif);
-
-	vector<char*> vct;
-	char* pBuf = m_pSubscribeManager->String2Buf(str_dif.c_str(), vct);
-
-	if (vct.size() > 0)
-	{
-		//转成字符串数组
-		char** pArray = new char*[vct.size()];
-		for (size_t j = 0; j < vct.size(); ++j)
-		{
-			pArray[j] = vct[j];
-		}
-
-		//订阅
-#ifdef SubscribeMarketData_argc_2
-		m_pApi->SubscribeMarketData(pArray, (int)vct.size());
-#else
-		m_pApi->SubscribeMarketData(pArray, (int)vct.size(), (char*)szExchangeID.c_str());
-#endif // SubscribeMarketData_argc_2
-
-
-		delete[] pArray;
-	}
-	delete[] pBuf;
-}
-
-void CMdUserApi::Unsubscribe(const set<string>& instrumentIDs, const string& szExchangeID)
-{
-	if (nullptr == m_pApi)
-		return;
-
-	if (instrumentIDs.size() == 0)
-		return;
-
-	set<string> s_dif = m_pSubscribeManager->Unsubscribe(instrumentIDs, szExchangeID);
-	string str_dif = m_pSubscribeManager->Set2String(s_dif);
-
-	vector<char*> vct;
-	char* pBuf = m_pSubscribeManager->String2Buf(str_dif.c_str(), vct);
-
-	if (vct.size() > 0)
-	{
-		//转成字符串数组
-		char** pArray = new char*[vct.size()];
-		for (size_t j = 0; j < vct.size(); ++j)
-		{
-			pArray[j] = vct[j];
-		}
-
-		//订阅
-#ifdef SubscribeMarketData_argc_2
-		m_pApi->UnSubscribeMarketData(pArray, (int)vct.size());
-#else
-		m_pApi->UnSubscribeMarketData(pArray, (int)vct.size(), (char*)szExchangeID.c_str());
-#endif // SubscribeMarketData_argc_2
-
-
-		delete[] pArray;
-	}
-	delete[] pBuf;
-}
-
-void CMdUserApi::Unsubscribe(const string& szInstrumentIDs, const string& szExchangeID)
-{
-	if (nullptr == m_pApi)
-		return;
-
-	set<string> ss_new = m_pSubscribeManager->String2Set(szInstrumentIDs.c_str());
-	Unsubscribe(ss_new, szExchangeID);
+    m_pApi->UnSubscribeMarketData((char**)&ppInstrumentID, nCount);
+	//set<string> ss_new = m_pSubscribeManager->String2Set(szInstrumentIDs.c_str());
+	//Unsubscribe(ss_new, szExchangeID);
 }
 
 void CMdUserApi::OnFrontConnected()
@@ -542,7 +473,7 @@ void CMdUserApi::OnRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CTho
 			{
 				set<string> mapOld = m_pSubscribeManager->GetParentInstruments(exchange->data());//记下上次订阅的合约
 				m_pSubscribeManager->Clear();
-				Subscribe(mapOld, exchange->data());//订阅
+				//Subscribe(mapOld, exchange->data());//订阅
 			}
 		}
 		{
@@ -552,7 +483,7 @@ void CMdUserApi::OnRspUserLogin(CThostFtdcRspUserLoginField *pRspUserLogin, CTho
 			{
 				set<string> mapOld = m_pQuoteSubscribeManager->GetParentInstruments(exchange->data());//记下上次订阅的合约
 				m_pQuoteSubscribeManager->Clear();
-				SubscribeQuote(mapOld, exchange->data());//订阅
+				//SubscribeQuote(mapOld, exchange->data());//订阅
 			}
 #endif // HAS_Quote
 		}
@@ -595,221 +526,157 @@ void CMdUserApi::OnRspUnSubMarketData(CThostFtdcSpecificInstrumentField *pSpecif
 //行情回调，得保证此函数尽快返回
 void CMdUserApi::OnRtnDepthMarketData(CThostFtdcDepthMarketDataField *pDepthMarketData)
 {
-	//for (int i = 0; i < 50; ++i)
-	//{
-	//	// 测试平台穿越速度，用完后需要注释掉
-	//	WriteLog("CTP:OnRtnDepthMarketData:%s %f %s.%03d", pDepthMarketData->InstrumentID, pDepthMarketData->LastPrice, pDepthMarketData->UpdateTime, pDepthMarketData->UpdateMillisec);
+    CThostFtdcDepthMarketDataField* pField = (CThostFtdcDepthMarketDataField*)m_msgQueue->new_block(sizeof(CThostFtdcDepthMarketDataField));
+    memcpy(pField, pDepthMarketData, sizeof(CThostFtdcDepthMarketDataField));
+    m_msgQueue->Input_NoCopy(ResponseType::ResponseType_OnRtnDepthMarketData, m_msgQueue, m_pClass, 0, 0, pField, sizeof(CThostFtdcDepthMarketDataField), nullptr, 0, nullptr, 0);
+	return;
 
-	DepthMarketDataNField* pField = (DepthMarketDataNField*)m_msgQueue->new_block(sizeof(DepthMarketDataNField) + sizeof(DepthField) * 10);
-
-	strcpy(pField->InstrumentID, pDepthMarketData->InstrumentID);
-	strcpy(pField->ExchangeID, pDepthMarketData->ExchangeID);
-	pField->Exchange = TThostFtdcExchangeIDType_2_ExchangeType(pDepthMarketData->ExchangeID);
-
-	sprintf(pField->Symbol, "%s.%s", pField->InstrumentID, pDepthMarketData->ExchangeID);
-
-
-	// 交易时间
-	GetExchangeTime(m_TradingDay, m_PreTradingDay,
-		pDepthMarketData->TradingDay, pDepthMarketData->ActionDay, pDepthMarketData->UpdateTime,
-		&pField->TradingDay, &pField->ActionDay, &pField->UpdateTime, &pField->UpdateMillisec);
-
-	pField->UpdateMillisec = pDepthMarketData->UpdateMillisec;
-
-	pField->LastPrice = pDepthMarketData->LastPrice == DBL_MAX ? 0 : pDepthMarketData->LastPrice;
-	pField->Volume = pDepthMarketData->Volume;
-	pField->Turnover = pDepthMarketData->Turnover;
-	pField->OpenInterest = pDepthMarketData->OpenInterest;
-	pField->AveragePrice = pDepthMarketData->AveragePrice;
-
-	if (pDepthMarketData->OpenPrice != DBL_MAX)
-	{
-		pField->OpenPrice = pDepthMarketData->OpenPrice;
-		pField->HighestPrice = pDepthMarketData->HighestPrice;
-		pField->LowestPrice = pDepthMarketData->LowestPrice;
-	}
-	else
-	{
-		pField->OpenPrice = 0;
-		pField->HighestPrice = 0;
-		pField->LowestPrice = 0;
-	}
-	pField->SettlementPrice = pDepthMarketData->SettlementPrice != DBL_MAX ? pDepthMarketData->SettlementPrice : 0;
-
-	pField->UpperLimitPrice = pDepthMarketData->UpperLimitPrice;
-	pField->LowerLimitPrice = pDepthMarketData->LowerLimitPrice;
-	pField->PreClosePrice = pDepthMarketData->PreClosePrice;
-	pField->PreSettlementPrice = pDepthMarketData->PreSettlementPrice;
-	pField->PreOpenInterest = pDepthMarketData->PreOpenInterest;
-
-	InitBidAsk(pField);
-
-	do
-	{
-		if (pDepthMarketData->BidVolume1 == 0)
-			break;
-		AddBid(pField, pDepthMarketData->BidPrice1, pDepthMarketData->BidVolume1, 0);
-
-		if (pDepthMarketData->BidVolume2 == 0)
-			break;
-		AddBid(pField, pDepthMarketData->BidPrice2, pDepthMarketData->BidVolume2, 0);
-
-		if (pDepthMarketData->BidVolume3 == 0)
-			break;
-		AddBid(pField, pDepthMarketData->BidPrice3, pDepthMarketData->BidVolume3, 0);
-
-		if (pDepthMarketData->BidVolume4 == 0)
-			break;
-		AddBid(pField, pDepthMarketData->BidPrice4, pDepthMarketData->BidVolume4, 0);
-
-		if (pDepthMarketData->BidVolume5 == 0)
-			break;
-		AddBid(pField, pDepthMarketData->BidPrice5, pDepthMarketData->BidVolume5, 0);
-	} while (false);
-
-	do
-	{
-		if (pDepthMarketData->AskVolume1 == 0)
-			break;
-		AddAsk(pField, pDepthMarketData->AskPrice1, pDepthMarketData->AskVolume1, 0);
-
-		if (pDepthMarketData->AskVolume2 == 0)
-			break;
-		AddAsk(pField, pDepthMarketData->AskPrice2, pDepthMarketData->AskVolume2, 0);
-
-		if (pDepthMarketData->AskVolume3 == 0)
-			break;
-		AddAsk(pField, pDepthMarketData->AskPrice3, pDepthMarketData->AskVolume3, 0);
-
-		if (pDepthMarketData->AskVolume4 == 0)
-			break;
-		AddAsk(pField, pDepthMarketData->AskPrice4, pDepthMarketData->AskVolume4, 0);
-
-		if (pDepthMarketData->AskVolume5 == 0)
-			break;
-		AddAsk(pField, pDepthMarketData->AskPrice5, pDepthMarketData->AskVolume5, 0);
-	} while (false);
-
-	// 不使用CThostFtdcDepthMarketDataField是因为不通用
-	char* pBuf = m_pSyntheticManager->Update(pField->InstrumentID, pField, pField->Size);
-
-	// 先通知成分，再通知合成，这样合成要触发事件时，成分的数据已经完成了
-	m_msgQueue->Input_NoCopy(ResponseType::ResponseType_OnRtnDepthMarketData, m_msgQueue, m_pClass, 0, 0, pField, pField->Size, nullptr, 0, nullptr, 0);
-
-	if (pBuf)
-	{
-		// 0号位是标记位
-		auto pSyntheticBuf = (DepthMarketDataNField*)(pBuf);
-		// 合约不能为空，空了就不知道通知谁了
-		int offest = pSyntheticBuf->InstrumentID - pBuf;
-		// 有相关的合约与数据
-		auto products = m_pSyntheticManager->GetByInstrument(pSyntheticBuf->InstrumentID);
-		for (auto iter = products.begin(); iter != products.end(); iter++)
-		{
-			auto p = *iter;
-			// 只对需要的进行计算和触发
-			if (p->CheckEmit(pSyntheticBuf->InstrumentID, offest))
-			{
-				// 0号位是标记位
-				auto q = (DepthMarketDataNField*)p->Calculate(pBuf);
-				if (q)
-				{
-					m_msgQueue->Input_Copy(ResponseType::ResponseType_OnRtnDepthMarketData, m_msgQueue, m_pClass, 0, 0, q, q->Size, nullptr, 0, nullptr, 0);
-				}
-			}
-		}
-	}
-	//}
+//    //for (int i = 0; i < 50; ++i)
+//	//{
+//	//	// 测试平台穿越速度，用完后需要注释掉
+//	//	WriteLog("CTP:OnRtnDepthMarketData:%s %f %s.%03d", pDepthMarketData->InstrumentID, pDepthMarketData->LastPrice, pDepthMarketData->UpdateTime, pDepthMarketData->UpdateMillisec);
+//
+//	DepthMarketDataNField* pField = (DepthMarketDataNField*)m_msgQueue->new_block(sizeof(DepthMarketDataNField) + sizeof(DepthField) * 10);
+//
+//	strcpy(pField->InstrumentID, pDepthMarketData->InstrumentID);
+//	strcpy(pField->ExchangeID, pDepthMarketData->ExchangeID);
+//	pField->Exchange = TThostFtdcExchangeIDType_2_ExchangeType(pDepthMarketData->ExchangeID);
+//
+//	sprintf(pField->Symbol, "%s.%s", pField->InstrumentID, pDepthMarketData->ExchangeID);
+//
+//
+//	// 交易时间
+//	GetExchangeTime(m_TradingDay, m_PreTradingDay,
+//		pDepthMarketData->TradingDay, pDepthMarketData->ActionDay, pDepthMarketData->UpdateTime,
+//		&pField->TradingDay, &pField->ActionDay, &pField->UpdateTime, &pField->UpdateMillisec);
+//
+//	pField->UpdateMillisec = pDepthMarketData->UpdateMillisec;
+//
+//	pField->LastPrice = pDepthMarketData->LastPrice == DBL_MAX ? 0 : pDepthMarketData->LastPrice;
+//	pField->Volume = pDepthMarketData->Volume;
+//	pField->Turnover = pDepthMarketData->Turnover;
+//	pField->OpenInterest = pDepthMarketData->OpenInterest;
+//	pField->AveragePrice = pDepthMarketData->AveragePrice;
+//
+//	if (pDepthMarketData->OpenPrice != DBL_MAX)
+//	{
+//		pField->OpenPrice = pDepthMarketData->OpenPrice;
+//		pField->HighestPrice = pDepthMarketData->HighestPrice;
+//		pField->LowestPrice = pDepthMarketData->LowestPrice;
+//	}
+//	else
+//	{
+//		pField->OpenPrice = 0;
+//		pField->HighestPrice = 0;
+//		pField->LowestPrice = 0;
+//	}
+//	pField->SettlementPrice = pDepthMarketData->SettlementPrice != DBL_MAX ? pDepthMarketData->SettlementPrice : 0;
+//
+//	pField->UpperLimitPrice = pDepthMarketData->UpperLimitPrice;
+//	pField->LowerLimitPrice = pDepthMarketData->LowerLimitPrice;
+//	pField->PreClosePrice = pDepthMarketData->PreClosePrice;
+//	pField->PreSettlementPrice = pDepthMarketData->PreSettlementPrice;
+//	pField->PreOpenInterest = pDepthMarketData->PreOpenInterest;
+//
+//	InitBidAsk(pField);
+//
+//	do
+//	{
+//		if (pDepthMarketData->BidVolume1 == 0)
+//			break;
+//		AddBid(pField, pDepthMarketData->BidPrice1, pDepthMarketData->BidVolume1, 0);
+//
+//		if (pDepthMarketData->BidVolume2 == 0)
+//			break;
+//		AddBid(pField, pDepthMarketData->BidPrice2, pDepthMarketData->BidVolume2, 0);
+//
+//		if (pDepthMarketData->BidVolume3 == 0)
+//			break;
+//		AddBid(pField, pDepthMarketData->BidPrice3, pDepthMarketData->BidVolume3, 0);
+//
+//		if (pDepthMarketData->BidVolume4 == 0)
+//			break;
+//		AddBid(pField, pDepthMarketData->BidPrice4, pDepthMarketData->BidVolume4, 0);
+//
+//		if (pDepthMarketData->BidVolume5 == 0)
+//			break;
+//		AddBid(pField, pDepthMarketData->BidPrice5, pDepthMarketData->BidVolume5, 0);
+//	} while (false);
+//
+//	do
+//	{
+//		if (pDepthMarketData->AskVolume1 == 0)
+//			break;
+//		AddAsk(pField, pDepthMarketData->AskPrice1, pDepthMarketData->AskVolume1, 0);
+//
+//		if (pDepthMarketData->AskVolume2 == 0)
+//			break;
+//		AddAsk(pField, pDepthMarketData->AskPrice2, pDepthMarketData->AskVolume2, 0);
+//
+//		if (pDepthMarketData->AskVolume3 == 0)
+//			break;
+//		AddAsk(pField, pDepthMarketData->AskPrice3, pDepthMarketData->AskVolume3, 0);
+//
+//		if (pDepthMarketData->AskVolume4 == 0)
+//			break;
+//		AddAsk(pField, pDepthMarketData->AskPrice4, pDepthMarketData->AskVolume4, 0);
+//
+//		if (pDepthMarketData->AskVolume5 == 0)
+//			break;
+//		AddAsk(pField, pDepthMarketData->AskPrice5, pDepthMarketData->AskVolume5, 0);
+//	} while (false);
+//
+//	// 不使用CThostFtdcDepthMarketDataField是因为不通用
+//	char* pBuf = m_pSyntheticManager->Update(pField->InstrumentID, pField, pField->Size);
+//
+//	// 先通知成分，再通知合成，这样合成要触发事件时，成分的数据已经完成了
+//	m_msgQueue->Input_NoCopy(ResponseType::ResponseType_OnRtnDepthMarketData, m_msgQueue, m_pClass, 0, 0, pField, pField->Size, nullptr, 0, nullptr, 0);
+//
+//	if (pBuf)
+//	{
+//		// 0号位是标记位
+//		auto pSyntheticBuf = (DepthMarketDataNField*)(pBuf);
+//		// 合约不能为空，空了就不知道通知谁了
+//		int offest = pSyntheticBuf->InstrumentID - pBuf;
+//		// 有相关的合约与数据
+//		auto products = m_pSyntheticManager->GetByInstrument(pSyntheticBuf->InstrumentID);
+//		for (auto iter = products.begin(); iter != products.end(); iter++)
+//		{
+//			auto p = *iter;
+//			// 只对需要的进行计算和触发
+//			if (p->CheckEmit(pSyntheticBuf->InstrumentID, offest))
+//			{
+//				// 0号位是标记位
+//				auto q = (DepthMarketDataNField*)p->Calculate(pBuf);
+//				if (q)
+//				{
+//					m_msgQueue->Input_Copy(ResponseType::ResponseType_OnRtnDepthMarketData, m_msgQueue, m_pClass, 0, 0, q, q->Size, nullptr, 0, nullptr, 0);
+//				}
+//			}
+//		}
+//	}
+//	//}
 }
 
 #ifdef HAS_Quote
 
-void CMdUserApi::SubscribeQuote(const string& szInstrumentIDs, const string& szExchangeID)
+void CMdUserApi::SubscribeQuote(const char *ppInstrumentID[], int nCount)
 {
 	if (nullptr == m_pApi)
 		return;
 
-	set<string> ss_new = m_pQuoteSubscribeManager->String2Set(szInstrumentIDs.c_str());
-	SubscribeQuote(ss_new, szExchangeID);
+	m_pApi->SubscribeForQuoteRsp((char**)&ppInstrumentID, nCount);
+	//set<string> ss_new = m_pQuoteSubscribeManager->String2Set(szInstrumentIDs.c_str());
+	//SubscribeQuote(ss_new, szExchangeID);
 }
 
-void CMdUserApi::SubscribeQuote(const set<string>& instrumentIDs, const string& szExchangeID)
+void CMdUserApi::UnsubscribeQuote(const char *ppInstrumentID[], int nCount)
 {
 	if (nullptr == m_pApi)
 		return;
-
-	if (instrumentIDs.size() == 0)
-		return;
-
-	set<string> ss_new = m_pQuoteSubscribeManager->Subscribe(instrumentIDs, szExchangeID);
-	string str_new = m_pQuoteSubscribeManager->Set2String(ss_new);
-	vector<char*> vct;
-	char* pBuf = m_pQuoteSubscribeManager->String2Buf(str_new.c_str(), vct);
-
-	if (vct.size() > 0)
-	{
-		//转成字符串数组
-		char** pArray = new char*[vct.size()];
-		for (size_t j = 0; j < vct.size(); ++j)
-		{
-			pArray[j] = vct[j];
-		}
-
-		//订阅
-#ifdef SubscribeMarketData_argc_2
-		m_pApi->SubscribeForQuoteRsp(pArray, (int)vct.size());
-#else
-		m_pApi->SubscribeForQuoteRsp(pArray, (int)vct.size(), (char*)szExchangeID.c_str());
-#endif // SubscribeMarketData_argc_2
-
-
-		delete[] pArray;
-	}
-	delete[] pBuf;
-}
-
-void CMdUserApi::UnsubscribeQuote(const set<string>& instrumentIDs, const string& szExchangeID)
-{
-	if (nullptr == m_pApi)
-		return;
-
-	if (instrumentIDs.size() == 0)
-		return;
-
-	set<string> ss_new = m_pQuoteSubscribeManager->Unsubscribe(instrumentIDs, szExchangeID);
-	string str_new = m_pQuoteSubscribeManager->Set2String(ss_new);
-	vector<char*> vct;
-	char* pBuf = m_pQuoteSubscribeManager->String2Buf(str_new.c_str(), vct);
-
-	if (vct.size() > 0)
-	{
-		//转成字符串数组
-		char** pArray = new char*[vct.size()];
-		for (size_t j = 0; j < vct.size(); ++j)
-		{
-			pArray[j] = vct[j];
-		}
-
-		//订阅
-#ifdef SubscribeMarketData_argc_2
-		m_pApi->UnSubscribeForQuoteRsp(pArray, (int)vct.size());
-#else
-		m_pApi->UnSubscribeForQuoteRsp(pArray, (int)vct.size(), (char*)szExchangeID.c_str());
-#endif // SubscribeMarketData_argc_2
-
-
-		delete[] pArray;
-	}
-	delete[] pBuf;
-}
-
-void CMdUserApi::UnsubscribeQuote(const string& szInstrumentIDs, const string& szExchangeID)
-{
-	if (nullptr == m_pApi)
-		return;
-
-	set<string> ss_new = m_pSubscribeManager->String2Set(szInstrumentIDs.c_str());
-	UnsubscribeQuote(ss_new, szExchangeID);
+    m_pApi->UnSubscribeForQuoteRsp((char**)&ppInstrumentID, nCount);
+	//set<string> ss_new = m_pSubscribeManager->String2Set(szInstrumentIDs.c_str());
+	//UnsubscribeQuote(ss_new, szExchangeID);
 }
 
 
@@ -831,18 +698,21 @@ void CMdUserApi::OnRspUnSubForQuoteRsp(CThostFtdcSpecificInstrumentField *pSpeci
 
 void CMdUserApi::OnRtnForQuoteRsp(CThostFtdcForQuoteRspField *pForQuoteRsp)
 {
+    CThostFtdcForQuoteRspField* pField = (CThostFtdcForQuoteRspField*)m_msgQueue->new_block(sizeof(CThostFtdcForQuoteRspField));
+    memcpy(pField, pForQuoteRsp, sizeof(CThostFtdcForQuoteRspField));
+    m_msgQueue->Input_NoCopy(ResponseType::ResponseType_OnRtnQuoteRequest, m_msgQueue, m_pClass, 0, 0, pField, sizeof(QuoteRequestField), nullptr, 0, nullptr, 0);
 	// 上期技术的人说，上海中金走的交易接口，大商，郑商走行情，所以这个地方后期可能要改
-	QuoteRequestField* pField = (QuoteRequestField*)m_msgQueue->new_block(sizeof(QuoteRequestField));
-
-	pField->TradingDay = str_to_yyyyMMdd(pForQuoteRsp->TradingDay);
-	pField->QuoteTime = str_to_yyyyMMdd(pForQuoteRsp->ForQuoteTime);
-	strcpy(pField->Symbol, pForQuoteRsp->InstrumentID);
-	strcpy(pField->InstrumentID, pForQuoteRsp->InstrumentID);
-	strcpy(pField->ExchangeID, pForQuoteRsp->ExchangeID);
-	sprintf(pField->Symbol, "%s.%s", pField->InstrumentID, pField->ExchangeID);
-	strcpy(pField->QuoteID, pForQuoteRsp->ForQuoteSysID);
-
-	m_msgQueue->Input_NoCopy(ResponseType::ResponseType_OnRtnQuoteRequest, m_msgQueue, m_pClass, 0, 0, pField, sizeof(QuoteRequestField), nullptr, 0, nullptr, 0);
+//	QuoteRequestField* pField = (QuoteRequestField*)m_msgQueue->new_block(sizeof(QuoteRequestField));
+//
+//	pField->TradingDay = str_to_yyyyMMdd(pForQuoteRsp->TradingDay);
+//	pField->QuoteTime = str_to_yyyyMMdd(pForQuoteRsp->ForQuoteTime);
+//	strcpy(pField->Symbol, pForQuoteRsp->InstrumentID);
+//	strcpy(pField->InstrumentID, pForQuoteRsp->InstrumentID);
+//	strcpy(pField->ExchangeID, pForQuoteRsp->ExchangeID);
+//	sprintf(pField->Symbol, "%s.%s", pField->InstrumentID, pField->ExchangeID);
+//	strcpy(pField->QuoteID, pForQuoteRsp->ForQuoteSysID);
+//
+//	m_msgQueue->Input_NoCopy(ResponseType::ResponseType_OnRtnQuoteRequest, m_msgQueue, m_pClass, 0, 0, pField, sizeof(QuoteRequestField), nullptr, 0, nullptr, 0);
 }
 #endif // HAS_Quote
 

@@ -246,3 +246,7 @@ $RECYCLE.BIN/
 
 # VSCode files
 .vscode
+
+# IDEA
+.idea
+/cmake-build-debug-remote-host/

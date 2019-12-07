@@ -1,11 +1,12 @@
 //
 // Created by kecy on 2019/12/5.
 //
-#include "../../../include/CrossPlatform.h"
-#include "../../../include/FIRSTApi.h"
+
 #ifndef XAPI2_FIRSTAPIIMPL_H
 #define XAPI2_FIRSTAPIIMPL_H
 
+#include "../../../include/CrossPlatform.h"
+#include "../../../include/FIRSTApi.h"
 
 class FIRSTApiImpl : public FIRSTApi{
 public:
@@ -21,10 +22,6 @@ public:
     const char *GetTradingDay() override;
 
     void RegisterFront(char *pszFrontAddress) override;
-
-    void RegisterNameServer(char *pszNsAddress) override;
-
-    void RegisterFensUserInfo(CThostFtdcFensUserInfoField *pFensUserInfo) override;
 
     void RegisterSpi(FIRSTSpi *pSpi) override;
 
@@ -90,6 +87,10 @@ public:
 
 public:
     static  void* __stdcall OnResponse(char type, void* pApi1, void* pApi2, double double1, double double2, void* ptr1, int size1, void* ptr2, int size2, void* ptr3, int size3);
+
+    void connect(char *pszFrontAddress, CThostFtdcReqAuthenticateField *pReqAuthenticateField,
+                 CThostFtdcReqUserLoginField *pReqUserLoginField) override;
+
 private:
     void* _OnResponse(char type, void* pApi1, void* pApi2, double double1, double double2, void* ptr1, int size1, void* ptr2, int size2, void* ptr3, int size3);
 

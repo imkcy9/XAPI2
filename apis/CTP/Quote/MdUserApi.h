@@ -37,18 +37,15 @@ public:
 	void Register(void* pCallback, void* pClass);
 	ConfigInfoField* Config(ConfigInfoField* pConfigInfo);
 
-	void Connect(const string& szPath,
-		ServerInfoField* pServerInfo,
-		UserInfoField* pUserInfo,
-		int count);
+	void Connect(char *pszFrontAddress, CThostFtdcReqAuthenticateField *pReqAuthenticateField, CThostFtdcReqUserLoginField *pReqUserLoginField);
 	void Disconnect();
 
-	void Subscribe(const string& szInstrumentIDs, const string& szExchangeID);
-	void Unsubscribe(const string& szInstrumentIDs, const string& szExchangeID);
+	void Subscribe(const char *ppInstrumentID[], int nCount);
+	void Unsubscribe(const char *ppInstrumentID[], int nCount);
 
 #ifdef HAS_Quote
-	void SubscribeQuote(const string& szInstrumentIDs, const string& szExchangeID);
-	void UnsubscribeQuote(const string& szInstrumentIDs, const string& szExchangeID);
+	void SubscribeQuote(const char *ppInstrumentID[], int nCount);
+	void UnsubscribeQuote(const char *ppInstrumentID[], int nCount);
 #endif // HAS_Quote
 
 private:
@@ -64,10 +61,10 @@ private:
 	int _ReqUserLogin(char type, void* pApi1, void* pApi2, double double1, double double2, void* ptr1, int size1, void* ptr2, int size2, void* ptr3, int size3);
 
 	//订阅行情
-	void Subscribe(const set<string>& instrumentIDs, const string& szExchangeID);
-	void Unsubscribe(const set<string>& instrumentIDs, const string& szExchangeID);
-	void SubscribeQuote(const set<string>& instrumentIDs, const string& szExchangeID);
-	void UnsubscribeQuote(const set<string>& instrumentIDs, const string& szExchangeID);
+//	void Subscribe(const set<string>& instrumentIDs, const string& szExchangeID);
+//	void Unsubscribe(const set<string>& instrumentIDs, const string& szExchangeID);
+//	void SubscribeQuote(const set<string>& instrumentIDs, const string& szExchangeID);
+//	void UnsubscribeQuote(const set<string>& instrumentIDs, const string& szExchangeID);
 
 	virtual void OnFrontConnected();
 	virtual void OnFrontDisconnected(int nReason);
@@ -101,6 +98,9 @@ private:
 	string						m_szPath;				//生成配置文件的路径
 	ServerInfoField				m_ServerInfo;
 	UserInfoField				m_UserInfo;
+	string                      m_address;
+    CThostFtdcReqAuthenticateField m_AuthenticateField;
+    CThostFtdcReqUserLoginField    m_UserLoginField;
 	int							m_nSleep;
 
 	CMsgQueue*					m_msgQueue;				//消息队列指针

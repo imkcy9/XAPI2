@@ -42,6 +42,7 @@ if (WIN32)
     add_library(FIRST_API_CPP SHARED
             ${FIRST_API_h}
             ${FIRST_API_CPP_cpp}
+            ${CMAKE_CURRENT_LIST_DIR}/include/FIRSTApiC.h
             ${CMAKE_CURRENT_LIST_DIR}/include/FIRSTApi.h
             ${CMAKE_CURRENT_LIST_DIR}/include/CrossPlatform.h
             )
@@ -61,38 +62,38 @@ target_link_libraries(FIRST_API_CPP
         )
 target_compile_definitions(FIRST_API_CPP
         PRIVATE BUILDING_DLL
-        PUBLIC FIRST_API_CPP_h_EXPORTS)
+        PUBLIC FIRST_API_CPP_EXPORTS)
 
 # add XAPI_CPP
-file(GLOB_RECURSE XAPI_CPP_h ${CMAKE_CURRENT_LIST_DIR}/languages/CPP/XAPI_CPP/*.h)
-file(GLOB_RECURSE XAPI_CPP_cpp ${CMAKE_CURRENT_LIST_DIR}/languages/CPP/XAPI_CPP/*.cpp)
-list(FILTER XAPI_CPP_cpp EXCLUDE REGEX ".*dllmain.cpp")
-if (WIN32)
-    add_library(XAPI_CPP SHARED
-            ${XAPI_CPP_h}
-            ${XAPI_CPP_cpp}
-            ${CMAKE_CURRENT_LIST_DIR}/include/XApiC.h
-            ${CMAKE_CURRENT_LIST_DIR}/include/XApiCpp.h
-            ${CMAKE_CURRENT_LIST_DIR}/include/CrossPlatform.h
-            )
-    set_target_properties(XAPI_CPP
-            PROPERTIES
-            FOLDER "languages/CPP"
-            OUTPUT_NAME XAPI_CPP_$(PlatformTarget)
-            )
-else ()
-    add_library(XAPI_CPP SHARED
-            ${XAPI_CPP_cpp}
-            )
-endif ()
-target_link_libraries(XAPI_CPP
-        ${CMAKE_THREAD_LIBS_INIT}
-        ${CMAKE_DL_LIBS}
-        )
-target_compile_definitions(XAPI_CPP
-        PRIVATE BUILDING_DLL
-        PUBLIC XAPI_CPP_EXPORTS
-        )
+#file(GLOB_RECURSE XAPI_CPP_h ${CMAKE_CURRENT_LIST_DIR}/languages/CPP/XAPI_CPP/*.h)
+#file(GLOB_RECURSE XAPI_CPP_cpp ${CMAKE_CURRENT_LIST_DIR}/languages/CPP/XAPI_CPP/*.cpp)
+#list(FILTER XAPI_CPP_cpp EXCLUDE REGEX ".*dllmain.cpp")
+#if (WIN32)
+#    add_library(XAPI_CPP SHARED
+#            ${XAPI_CPP_h}
+#            ${XAPI_CPP_cpp}
+#            ${CMAKE_CURRENT_LIST_DIR}/include/XApiC.h
+#            ${CMAKE_CURRENT_LIST_DIR}/include/XApiCpp.h
+#            ${CMAKE_CURRENT_LIST_DIR}/include/CrossPlatform.h
+#            )
+#    set_target_properties(XAPI_CPP
+#            PROPERTIES
+#            FOLDER "languages/CPP"
+#            OUTPUT_NAME XAPI_CPP_$(PlatformTarget)
+#            )
+#else ()
+#    add_library(XAPI_CPP SHARED
+#            ${XAPI_CPP_cpp}
+#            )
+#endif ()
+#target_link_libraries(XAPI_CPP
+#        ${CMAKE_THREAD_LIBS_INIT}
+#        ${CMAKE_DL_LIBS}
+#        )
+#target_compile_definitions(XAPI_CPP
+#        PRIVATE BUILDING_DLL
+#        PUBLIC XAPI_CPP_EXPORTS
+#        )
 
 # get common files
 set(common_h
@@ -314,6 +315,38 @@ target_link_libraries(CTP_Quote
         thostmduserapi
         )
 
+# add CTP SE Quote
+set(folder "")
+list(APPEND folder ${CMAKE_CURRENT_LIST_DIR}/apis/CTP)
+list(APPEND folder ${CMAKE_CURRENT_LIST_DIR}/apis/CTP/Quote)
+list(APPEND folder ${CMAKE_CURRENT_LIST_DIR}/apis/CTP_SE_Quote)
+add_quote(CTP_SE_Quote "${folder}")
+if (WIN32)
+    if (CMAKE_CL_64)
+        ADD_CUSTOM_COMMAND(TARGET CTP_SE_Quote
+                PRE_LINK
+                COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$(Configuration)
+                COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_LIST_DIR}/include/CTP_SE/win64/thostmduserapi_se.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$(Configuration)/
+                COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_LIST_DIR}/include/CTP_SE/win64/thostmduserapi_se.lib ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/$(Configuration)/
+                )
+    else ()
+        ADD_CUSTOM_COMMAND(TARGET CTP_SE_Quote
+                PRE_LINK
+                COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$(Configuration)
+                COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_LIST_DIR}/include/CTP_SE/win32/thostmduserapi_se.dll ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$(Configuration)/
+                COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_LIST_DIR}/include/CTP_SE/win32/thostmduserapi_se.lib ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/$(Configuration)/
+                )
+    endif ()
+else ()
+    ADD_CUSTOM_COMMAND(TARGET CTP_SE_Quote
+            PRE_LINK
+            COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_LIST_DIR}/include/CTP_SE/linux64/libthostmduserapi_se.so ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/
+            )
+endif ()
+target_link_libraries(CTP_SE_Quote
+        thostmduserapi_se
+        )
+
 # add CTP Trade
 set(folder "")
 list(APPEND folder ${CMAKE_CURRENT_LIST_DIR}/apis/CTP)
@@ -414,14 +447,14 @@ target_link_libraries(CTP_Trade
 #)
 
 # add cpp examples
-add_executable(ExampleCTP ${CMAKE_CURRENT_LIST_DIR}/example/cpp/CTP/example_ctp.cpp)
-target_link_libraries(ExampleCTP XAPI_CPP)
-target_compile_definitions(ExampleCTP PRIVATE USE_CMAKE)
-add_dependencies(ExampleCTP
-        XAPI_CPP
-        CTP_Quote
-        CTP_Trade
-        )
+#add_executable(ExampleCTP ${CMAKE_CURRENT_LIST_DIR}/example/cpp/CTP/example_ctp.cpp)
+#target_link_libraries(ExampleCTP XAPI_CPP)
+#target_compile_definitions(ExampleCTP PRIVATE USE_CMAKE)
+#add_dependencies(ExampleCTP
+#        XAPI_CPP
+#        CTP_Quote
+#        CTP_Trade
+#        )
 
 #add_executable(ExampleXTP ${CMAKE_CURRENT_LIST_DIR}/example/cpp/XTP/example_xtp.cpp)
 #target_link_libraries(ExampleXTP XAPI_CPP)
@@ -437,9 +470,9 @@ add_dependencies(ExampleCTP
 #	FOLDER "example/CPP"
 #)
 
-set_target_properties(ExampleCTP
-        PROPERTIES
-        FOLDER "example/CPP")
+#set_target_properties(ExampleCTP
+#        PROPERTIES
+#        FOLDER "example/CPP")
 
 # add first api examples
 add_executable(ExampleFIRST ${CMAKE_CURRENT_LIST_DIR}/example/cpp/CTP/example_first.cpp)

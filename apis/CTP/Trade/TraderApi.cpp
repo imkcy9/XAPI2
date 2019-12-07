@@ -205,17 +205,15 @@ bool CTraderApi::IsErrorRspInfo(CThostFtdcRspInfoField *pRspInfo)
 	return bRet;
 }
 
-void CTraderApi::Connect(const string& szPath,
-	ServerInfoField* pServerInfo,
-	UserInfoField* pUserInfo,
-	int count)
+void CTraderApi::Connect(char *pszFrontAddress, CThostFtdcReqAuthenticateField *pReqAuthenticateField, CThostFtdcReqUserLoginField *pReqUserLoginField)
 {
-	m_szPath = szPath;
-	memcpy(&m_ServerInfo, pServerInfo, sizeof(ServerInfoField));
-	memcpy(&m_UserInfo, pUserInfo, sizeof(UserInfoField));
+    m_szPath = "szPath";
+    m_address = pszFrontAddress;
+    memcpy(&m_AuthenticateField, pReqAuthenticateField, sizeof(m_AuthenticateField));
+    memcpy(&m_UserLoginField, pReqUserLoginField, sizeof(m_UserLoginField));
 
-	m_msgQueue_Query->Input_NoCopy(RequestType::E_Init, m_msgQueue_Query, this, 0, 0,
-		nullptr, 0, nullptr, 0, nullptr, 0);
+    m_msgQueue_Query->Input_NoCopy(RequestType::E_Init, m_msgQueue_Query, this, 0, 0,
+                                   nullptr, 0, nullptr, 0, nullptr, 0);
 }
 
 int CTraderApi::_Init()

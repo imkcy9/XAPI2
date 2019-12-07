@@ -46,24 +46,24 @@ void* __stdcall XRequest(char type, void* pApi1, void* pApi2, double double1, do
 	case RequestType_Config:
 		return (void*)pApi->Config((ConfigInfoField*)ptr1);
 	case RequestType_Connect:
-		pApi->Connect((const char*)ptr3, (ServerInfoField*)ptr1, (UserInfoField*)ptr2,size2);
+		pApi->Connect((char*)ptr1, (CThostFtdcReqAuthenticateField*)ptr2, (CThostFtdcReqUserLoginField*)ptr3);
 		break;
 	case RequestType_Disconnect:
 		pApi->Disconnect();
 		break;
 	case RequestType_Subscribe:
-		pApi->Subscribe((const char*)ptr1, (const char*)ptr2);
+		pApi->Subscribe((const char**)ptr1,1);
 		break;
 	case RequestType_Unsubscribe:
-		pApi->Unsubscribe((const char*)ptr1, (const char*)ptr2);
+		pApi->Unsubscribe((const char**)ptr1,1);
 		break;
 
 #if HAS_Quote
 	case RequestType_SubscribeQuote:
-		pApi->SubscribeQuote((const char*)ptr1, (const char*)ptr2);
+		pApi->SubscribeQuote((const char**)ptr1, 1);
 		break;
 	case RequestType_UnsubscribeQuote:
-		pApi->UnsubscribeQuote((const char*)ptr1, (const char*)ptr2);
+		pApi->UnsubscribeQuote((const char**)ptr1,1);
 		break;
 #endif // HAS_Quote
 

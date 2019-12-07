@@ -1,9 +1,9 @@
 #include "stdafx.h"
 
+#include "../../../include/FIRSTApiC.h"
 #include <stdio.h>
 #include <string.h>
-#include "../../../include/XApiC.h"
-#include "../../../include/QueueEnum.h"
+
 
 #if defined WINDOWS || WIN32
 //#include <libloaderapi.h>
@@ -11,6 +11,8 @@
 #include <dlfcn.h>
 #include <errno.h>
 #endif
+
+
 
 
 void* X_LoadLib(const char* libPath)
@@ -111,12 +113,13 @@ void X_Register(void* pFun, void* pApi, fnOnResponse pCallback, void* pClass)
 	((fnOnResponse)pFun)(RequestType::RequestType_Register, pApi, nullptr, 0, 0, (void*)pCallback, 0, pClass, 0, nullptr, 0);
 }
 
-void X_Connect(void* pFun, void* pApi, const char* frontAddress)
+void X_Connect(void* pFun, void* pApi, char *frontAddress, CThostFtdcReqAuthenticateField *pReqAuthenticateField,
+               CThostFtdcReqUserLoginField *pReqUserLoginField)
 {
 	if (pFun == nullptr || pApi == nullptr)
 		return;
 
-	((fnOnResponse)pFun)(RequestType::RequestType_Connect, pApi, nullptr, 0, 0, nullptr, 0, nullptr, 0, (void*)frontAddress, 0);
+	((fnOnResponse)pFun)(RequestType::RequestType_Connect, pApi, nullptr, 0, 0, frontAddress, 0, pReqAuthenticateField, 0, pReqUserLoginField, 0);
 }
 
 void X_Disconnect(void* pFun, void* pApi)
